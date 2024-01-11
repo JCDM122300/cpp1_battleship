@@ -36,18 +36,26 @@ class AssignmentGame : public BaseGame {
   protected:
     int solve() override {
         int ships = 0;
-        
-        for (int i = 0; i < ships; i++) 
+        int boardsize = HEIGHT + WIDTH; 
+        if (int i = 0; i < boardsize; i++) 
         {
-            if (this->board->guess() == ResponseType::HIT) 
+            for (int s = 0; s < ships; s++)
             {
-                ships += 1;
+                if (this->board->guess() == ResponseType::HIT)
+                {
+                    ships += 1;
+                }
+            }
+            if (ships == SHIP_COUNT)
+            {
+                return SHIP_COUNT;
+            }
+            else
+            {
+                return ships;
             }
         }
-        if (ships == SHIP_COUNT)
-        {
-            return SHIP_COUNT;
-        }
+       
         
     }
 };
