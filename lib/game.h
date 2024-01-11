@@ -35,8 +35,20 @@ protected:
 class AssignmentGame : public BaseGame {
   protected:
     int solve() override {
-        //IMPLEMENT YOUR SEARCH ALGORITHM HERE
-        return SHIP_COUNT;
+        int ships = 0;
+        
+        for (int i = 0; i < ships; i++) 
+        {
+            if (this->board->guess() == ResponseType::HIT) 
+            {
+                ships += 1;
+            }
+        }
+        if (ships == SHIP_COUNT)
+        {
+            return SHIP_COUNT;
+        }
+        
     }
 };
 
